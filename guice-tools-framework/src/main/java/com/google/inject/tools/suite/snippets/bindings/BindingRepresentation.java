@@ -17,17 +17,21 @@
 package com.google.inject.tools.suite.snippets.bindings;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Constructor;
-import java.util.Set;
 
 import com.google.inject.Binding;
 import com.google.inject.Injector;
-import com.google.inject.Key;
-import com.google.inject.Provider;
 import com.google.inject.Scope;
 import com.google.inject.spi.BindingScopingVisitor;
 import com.google.inject.spi.BindingTargetVisitor;
-import com.google.inject.spi.InjectionPoint;
+import com.google.inject.spi.ConstructorBinding;
+import com.google.inject.spi.ConvertedConstantBinding;
+import com.google.inject.spi.ExposedBinding;
+import com.google.inject.spi.InstanceBinding;
+import com.google.inject.spi.LinkedKeyBinding;
+import com.google.inject.spi.ProviderBinding;
+import com.google.inject.spi.ProviderInstanceBinding;
+import com.google.inject.spi.ProviderKeyBinding;
+import com.google.inject.spi.UntargettedBinding;
 import com.google.inject.tools.suite.snippets.problems.BindingProblem;
 import com.google.inject.tools.suite.snippets.problems.KeyProblem;
 import com.google.inject.tools.suite.snippets.problems.LocationProblem;
@@ -110,72 +114,87 @@ public class BindingRepresentation extends Representation {
   }
 
   class RepresentationBuildingVisitor<T> implements BindingTargetVisitor<T, Void> {
-    public Void visitConstructor(Constructor<? extends T> arg0, Set<InjectionPoint> arg1) {
-      return null;
-    }
+      public Void visit( InstanceBinding<? extends T> binding )
+      {
+          boundTo = binding.getInstance().getClass().getName();
+          boundProvider = null;
+          boundInstance = binding.getInstance().toString();
+          boundConstant = null;
+          linkedTo = null;
+          return null;
+      }
 
-    public Void visitConvertedConstant(T arg0) {
-      boundTo = arg0.getClass().getName();
-      boundProvider = null;
-      boundInstance = null;
-      boundConstant = arg0.toString();
-      linkedTo = null;
-      return null;
-    }
+      public Void visit( ProviderInstanceBinding<? extends T> binding )
+      {
+          boundTo = null;
+          boundProvider = binding.getProviderInstance().getClass().getName();
+          boundConstant = null;
+          boundInstance = binding.getProviderInstance().toString();
+          linkedTo = null;
+          return null;
+      }
 
-    public Void visitInstance(T arg0, Set<InjectionPoint> arg1) {
-      boundTo = arg0.getClass().getName();
-      boundProvider = null;
-      boundInstance = arg0.toString();
-      boundConstant = null;
-      linkedTo = null;
-      return null;
-    }
+      public Void visit( ProviderKeyBinding<? extends T> binding )
+      {
+          boundTo = null;
+          boundProvider = binding.getProviderKey().getTypeLiteral().getType().toString();
+          boundInstance = null;
+          boundConstant = null;
+          linkedTo = null;
+          return null;
+      }
 
-    public Void visitKey(Key<? extends T> arg0) {
-      boundTo = arg0.getTypeLiteral().getType().toString();
-      boundProvider = null;
-      boundInstance = null;
-      boundConstant = null;
-      linkedTo = null;
-      return null;
-    }
+      public Void visit( LinkedKeyBinding<? extends T> binding )
+      {
+          boundTo = binding.getLinkedKey().getTypeLiteral().getType().toString();
+          boundProvider = null;
+          boundInstance = null;
+          boundConstant = null;
+          linkedTo = null;
+          return null;
+      }
 
-    public Void visitProvider(Provider<? extends T> arg0, Set<InjectionPoint> arg1) {
-      boundTo = null;
-      boundProvider = arg0.getClass().getName();
-      boundConstant = null;
-      boundInstance = arg0.toString();
-      linkedTo = null;
-      return null;
-    }
+      public Void visit( ExposedBinding<? extends T> binding )
+      {
+          // TODO Auto-generated method stub
+          return null;
+      }
 
-    public Void visitProviderBinding(Key<?> arg0) {
-      boundTo = null;
-      boundProvider = arg0.getTypeLiteral().getType().toString();
-      boundInstance = null;
-      boundConstant = null;
-      linkedTo = null;
-      return null;
-    }
+      public Void visit( UntargettedBinding<? extends T> binding )
+      {
+          boundTo = null;
+          boundProvider = null;
+          boundInstance = null;
+          boundConstant = null;
+          linkedTo = null;
+          return null;
+      }
 
-    public Void visitProviderKey(Key<? extends Provider<? extends T>> arg0) {
-      boundTo = null;
-      boundProvider = arg0.getTypeLiteral().getType().toString();
-      boundInstance = null;
-      boundConstant = null;
-      linkedTo = null;
-      return null;
-    }
+      public Void visit( ConstructorBinding<? extends T> binding )
+      {
+          // TODO Auto-generated method stub
+          return null;
+      }
 
-    public Void visitUntargetted() {
-      boundTo = null;
-      boundProvider = null;
-      boundInstance = null;
-      boundConstant = null;
-      linkedTo = null;
-      return null;
-    }
+      public Void visit( ConvertedConstantBinding<? extends T> binding )
+      {
+          boundTo = binding.getValue().getClass().getName();
+          boundProvider = null;
+          boundInstance = null;
+          boundConstant = binding.getValue().toString();
+          linkedTo = null;
+          return null;
+      }
+
+      public Void visit( ProviderBinding<? extends T> binding )
+      {
+          boundTo = null;
+          boundProvider = binding.getProvidedKey().getTypeLiteral().getType().toString();
+          boundInstance = null;
+          boundConstant = null;
+          linkedTo = null;
+          return null;
+      }
   }
 
   public KeyRepresentation key() {

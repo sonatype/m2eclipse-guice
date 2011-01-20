@@ -233,7 +233,7 @@ public interface ModuleManager {
   /**
    * Notify the manager that an application context has changed.
    */
-  public void moduleContextChanged(String contextName);
+  public void applicationContextChanged(String contextName);
   
   /**
    * Create a new (empty) module context.

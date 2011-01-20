@@ -16,6 +16,7 @@
 
 package com.google.inject.tools.suite.module;
 
+import com.google.inject.Binder;
 import com.google.inject.Binding;
 import com.google.inject.Key;
 import com.google.inject.Provider;
@@ -175,10 +176,6 @@ public class ModuleContextRepresentationTest extends TestCase {
         return Key.get(bindWhat);
       }
       
-      public void acceptTargetVisitor(BindingTargetVisitor<? super T, Void> visitor) {
-        
-      }
-
       public static class MockProvider<T> implements Provider<T> {
         private final Class<? extends T> bindsTo;
 
@@ -206,6 +203,10 @@ public class ModuleContextRepresentationTest extends TestCase {
       public <T> T acceptVisitor(ElementVisitor<T> arg0) {
         // TODO Auto-generated method stub
         return null;
+      }
+
+      public void applyTo( Binder binder )  {
+        // TODO Auto-generated method stub
       }
     }
   }

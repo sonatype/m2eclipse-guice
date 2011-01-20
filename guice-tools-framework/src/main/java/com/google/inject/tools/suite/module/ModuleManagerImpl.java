@@ -434,7 +434,7 @@ class ModuleManagerImpl implements ModuleManager,
     removeModuleContext(contextName);
   }
 
-  public void moduleContextChanged(String contextName) {
+  public void applicationContextChanged(String contextName) {
     ModuleContextRepresentationImpl context = null;
     synchronized (this) {
       for (ModuleContextRepresentationImpl moduleContext : moduleContexts) {
