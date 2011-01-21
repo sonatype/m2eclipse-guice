@@ -26,6 +26,7 @@ import com.google.inject.BindingAnnotation;
 import com.google.inject.Inject;
 import com.google.inject.Module;
 import com.google.inject.Provider;
+import com.google.inject.Scopes;
 import com.google.inject.TypeLiteral;
 import com.google.inject.name.Names;
 import com.google.inject.name.Named;
@@ -61,8 +62,8 @@ public class SampleModuleScenario {
     @Override
     protected void configure() {
       bind(MockInjectedInterface.class).to(MockInjectedInterfaceImpl.class);
-      bind(MockInjectedInterface.class).to(MockInjectedInterfaceImpl.class);
-      // this will throw a CreationException as its already bound
+      bind(MockInjectedInterface.class).to(MockInjectedInterfaceImpl.class).in(Scopes.SINGLETON);
+      // this will throw a CreationException as its already bound as a non-singleton
     }
   }
   public static class ModuleWithArguments extends AbstractModule {
