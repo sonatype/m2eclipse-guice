@@ -110,10 +110,10 @@ public class ModuleContextSnippetTest extends TestCase {
     assertTrue(location.location() == WorkingModuleBindLocation);
   }
 
-  private static final int WorkingModuleBindLocation = 45;
+  private static final int WorkingModuleBindLocation = 46;
   private static final String WorkingModuleBindFile =
       "SampleModuleScenario.java";
-  private static final int WorkingModuleBindLocation2 = 80;
+  private static final int WorkingModuleBindLocation2 = 81;
   private static final String WorkingModuleBindFile2 =
       "SampleModuleScenario.java";
 
