@@ -25,26 +25,26 @@
     </dependency>
   </dependencies>
 
-  <dependencies>
-    <dependency>
-      <groupId>org.testng</groupId>
-      <artifactId>testng</artifactId>
-      <version>5.11</version>
-      <classifier>jdk15</classifier>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>ch.qos.logback</groupId>
-      <artifactId>logback-classic</artifactId>
-      <version>0.9.26</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.easymock</groupId>
-      <artifactId>easymock</artifactId>
-      <version>3.0</version>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.sonatype.tycho</groupId>
+        <artifactId>target-platform-configuration</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <resolver>p2</resolver>
+          <pomDependencies>consider</pomDependencies>
+          <target>
+            <artifact>
+              <groupId>org.eclipse.m2e</groupId>
+              <artifactId>target-platform</artifactId>
+              <version>${project.parent.version}</version>
+              <classifier>${target.platform}</classifier>
+            </artifact>
+          </target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

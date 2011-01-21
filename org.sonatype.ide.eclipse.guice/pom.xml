@@ -42,7 +42,6 @@
               <classifier>${target.platform}</classifier>
             </artifact>
           </target>
-          <ignoreTychoRepositories>true</ignoreTychoRepositories>
         </configuration>
       </plugin>
     </plugins>
