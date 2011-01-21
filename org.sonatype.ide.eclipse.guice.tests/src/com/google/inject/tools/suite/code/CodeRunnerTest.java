@@ -38,22 +38,34 @@ import java.util.List;
  */
 public class CodeRunnerTest extends TestCase implements
     CodeRunner.CodeRunListener {
-  private static final URL CODEURL = 
+  private static final URL PROJECT_URL = 
+    CodeRunner.class.getProtectionDomain().getCodeSource().getLocation();
+  private static final URL SNIPPET_URL = 
     TestSnippet.class.getProtectionDomain().getCodeSource().getLocation();
 
   private boolean hitDone = false;
   private boolean hitResult = false;
-  private static String CLASSPATH;
+
+  private static String PROJECT_CLASSPATH;
+  private static String SNIPPET_CLASSPATH;
   
   @Override
   public void setUp() {
     hitDone = false;
     hitResult = false;
+
     try {
-      String codeLocation = CODEURL.toURI().getPath();
-      CLASSPATH = codeLocation.substring(codeLocation.indexOf('/'));
+      String projectLocation = PROJECT_URL.toURI().getPath();
+      PROJECT_CLASSPATH = projectLocation.substring(projectLocation.indexOf('/'));
     } catch (Throwable t) {
-      CLASSPATH = null;
+        PROJECT_CLASSPATH = null;
+    }
+
+    try {
+      String projectLocation = SNIPPET_URL.toURI().getPath();
+      SNIPPET_CLASSPATH = projectLocation.substring(projectLocation.indexOf('/'));
+    } catch (Throwable t) {
+      SNIPPET_CLASSPATH = null;
     }
   }
 
@@ -133,11 +145,11 @@ public class CodeRunnerTest extends TestCase implements
     }
 
     public String getProjectClasspath() throws Exception {
-      return CLASSPATH;
+      return PROJECT_CLASSPATH;
     }
 
     public String getSnippetsClasspath() throws Exception {
-      return "";
+      return SNIPPET_CLASSPATH;
     }
     
     public String getGuiceClasspath() throws Exception {
@@ -183,7 +195,7 @@ public class CodeRunnerTest extends TestCase implements
 
     @Override
     public void caughtException(Throwable e) {
-      fail();
+      fail(e.toString());
     }
 
     @Override

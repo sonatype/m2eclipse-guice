@@ -28,8 +28,11 @@
         <artifactId>maven-osgi-test-plugin</artifactId>
         <version>${tycho-version}</version>
         <configuration>
-          <argLine>${tycho.test.args}</argLine>
           <useUIHarness>true</useUIHarness>
+          <argLine>${tycho.test.args}</argLine>
+          <includes>
+            <include>**/*Test.java</include>
+          </includes>
         </configuration>
       </plugin>
     </plugins>
