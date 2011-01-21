@@ -11,7 +11,7 @@
 
   <packaging>eclipse-test-plugin</packaging>
   <artifactId>org.sonatype.ide.eclipse.guice.tests</artifactId>
-  <name>Maven Integration for Eclipse :: Guice Tests</name>
+  <name>Guice Integration for Eclipse (tests)</name>
 
   <dependencies>
     <dependency>

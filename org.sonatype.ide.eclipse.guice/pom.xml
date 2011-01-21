@@ -11,7 +11,7 @@
 
   <packaging>eclipse-plugin</packaging>
   <artifactId>org.sonatype.ide.eclipse.guice</artifactId>
-  <name>Maven Integration for Eclipse :: Guice</name>
+  <name>Guice Integration for Eclipse (plugin)</name>
 
   <dependencies>
     <dependency>
