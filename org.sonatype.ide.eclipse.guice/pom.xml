@@ -10,9 +10,7 @@
   </parent>
 
   <packaging>eclipse-plugin</packaging>
-
   <artifactId>org.sonatype.ide.eclipse.guice</artifactId>
-
   <name>Maven Integration for Eclipse :: Guice</name>
 
   <dependencies>

@@ -10,9 +10,7 @@
   </parent>
 
   <packaging>eclipse-test-plugin</packaging>
-
   <artifactId>org.sonatype.ide.eclipse.guice.tests</artifactId>
-
   <name>Maven Integration for Eclipse :: Guice Tests</name>
 
   <dependencies>
@@ -22,5 +20,18 @@
       <version>${project.version}</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.sonatype.tycho</groupId>
+        <artifactId>maven-osgi-test-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <configuration>
+          <useUIHarness>true</useUIHarness>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>

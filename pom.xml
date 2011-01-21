@@ -3,12 +3,6 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <parent>
-    <groupId>org.eclipse.m2e</groupId>
-    <artifactId>org.eclipse.m2e.parent</artifactId>
-    <version>0.13.0-SNAPSHOT</version>
-  </parent>
-
   <packaging>pom</packaging>
 
   <groupId>org.sonatype.ide.eclipse</groupId>
@@ -22,8 +16,26 @@
     <module>org.sonatype.ide.eclipse.guice.tests</module>
   </modules>
 
+  <properties>
+    <tycho-version>0.10.0</tycho-version>
+  </properties>
+
+  <repositories>
+   <repository>
+     <id>ganymede</id>
+     <layout>p2</layout>
+     <url>http://download.eclipse.org/releases/helios</url>
+   </repository>
+  </repositories>
+
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.sonatype.tycho</groupId>
+        <artifactId>tycho-maven-plugin</artifactId>
+        <version>${tycho-version}</version>
+        <extensions>true</extensions>
+      </plugin>
       <plugin>
         <groupId>org.sonatype.tycho</groupId>
         <artifactId>target-platform-configuration</artifactId>
@@ -31,15 +43,6 @@
         <configuration>
           <resolver>p2</resolver>
           <pomDependencies>consider</pomDependencies>
-          <target>
-            <artifact>
-              <groupId>org.eclipse.m2e</groupId>
-              <artifactId>target-platform</artifactId>
-              <version>0.13.0-SNAPSHOT</version>
-              <classifier>${target.platform}</classifier>
-              <ignoreTychoRepositories>true</ignoreTychoRepositories>
-            </artifact>
-          </target>
         </configuration>
       </plugin>
     </plugins>
