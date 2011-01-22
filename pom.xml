@@ -15,7 +15,6 @@
     <module>org.sonatype.ide.eclipse.guice</module>
     <module>org.sonatype.ide.eclipse.guice.tests</module>
     <module>org.sonatype.ide.eclipse.guice.feature</module>
-    <module>org.sonatype.ide.eclipse.guice.site</module>
   </modules>
 
   <properties>
