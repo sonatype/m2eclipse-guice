@@ -185,23 +185,13 @@ class EclipseJavaProject extends JavaProject {
   }
 
   public String getSnippetsClasspath() throws Exception {
-    return getJarClasspath(PluginDefinitionValues.GUICE_TOOLS_FRAMEWORK_JAR);
+    return FileLocator.getBundleFile(Platform.getBundle( PluginDefinitionValues.BUNDLE_ID )).getAbsolutePath();
   }
   
   public String getGuiceClasspath() throws Exception {
-    String guiceJar = getJarClasspath(PluginDefinitionValues.GUICE_JAR);
-    String aoPath = getJarClasspath(PluginDefinitionValues.AOPALLIANCE_JAR);
-    String asmPath = getJarClasspath(PluginDefinitionValues.ASM_JAR);
-    String cglibPath = getJarClasspath(PluginDefinitionValues.CGLIB_JAR);
-    return guiceJar + getClasspathDelimiter() + aoPath + getClasspathDelimiter()
-        + asmPath + getClasspathDelimiter() + cglibPath;
-  }
-  
-  private String getJarClasspath(String jarFile) throws Exception {
-    Bundle bundle = Platform.getBundle(PluginDefinitionValues.BUNDLE_ID);
-    URL url = bundle.getEntry(jarFile);
-    url = FileLocator.toFileURL(url);
-    return url.getFile();
+    return FileLocator.getBundleFile(Platform.getBundle( "org.sonatype.sisu.guice" )).getAbsolutePath()
+         + getClasspathDelimiter()
+         + FileLocator.getBundleFile(Platform.getBundle( "org.sonatype.inject" )).getAbsolutePath();
   }
   
   @Override

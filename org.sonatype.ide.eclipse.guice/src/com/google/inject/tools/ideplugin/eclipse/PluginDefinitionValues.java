@@ -24,20 +24,12 @@ package com.google.inject.tools.ideplugin.eclipse;
 final class PluginDefinitionValues {
   public static final String BASE_ID = "com.google.inject.tools.ideplugin.eclipse";
   
-  public static final String BUNDLE_ID = BASE_ID + ".guiceplugin";
+  public static final String BUNDLE_ID = "org.sonatype.ide.eclipse.guice";
   
   //ViewPart IDs
   public static final String RESULTS_VIEW_ID = BASE_ID + ".EclipseResultsView";
   public static final String ERROR_VIEW_ID = BASE_ID + ".EclipseErrorView";
-  
   public static final String PREFERENCES_ID = BASE_ID + ".preferences";
-  
-  //Library locations
-  public static final String GUICE_TOOLS_FRAMEWORK_JAR = "lib/GuiceToolsFramework_0.3.5.jar";
-  public static final String GUICE_JAR = "lib/Guice/guice-snapshot20080909.jar";
-  public static final String AOPALLIANCE_JAR= "lib/Guice/aopalliance.jar";
-  public static final String ASM_JAR = "lib/Guice/asm-2.2.3.jar";
-  public static final String CGLIB_JAR = "lib/Guice/cglib-2.2_beta1.jar";
   
   //Icon locations
   public static final String GUICE_ICON = "icons/guice.gif";
