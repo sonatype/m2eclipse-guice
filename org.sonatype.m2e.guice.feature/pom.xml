@@ -5,12 +5,12 @@
 
   <parent>
     <groupId>org.sonatype.ide.eclipse</groupId>
-    <artifactId>org.sonatype.ide.eclipse.guice.parent</artifactId>
+    <artifactId>org.sonatype.m2e.guice.parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <packaging>eclipse-feature</packaging>
-  <artifactId>org.sonatype.ide.eclipse.guice.feature</artifactId>
+  <artifactId>org.sonatype.m2e.guice.feature</artifactId>
   <name>Guice Integration for Eclipse (feature)</name>
 
   <build>

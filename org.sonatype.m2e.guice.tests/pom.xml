@@ -5,18 +5,18 @@
 
   <parent>
     <groupId>org.sonatype.ide.eclipse</groupId>
-    <artifactId>org.sonatype.ide.eclipse.guice.parent</artifactId>
+    <artifactId>org.sonatype.m2e.guice.parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
 
   <packaging>eclipse-test-plugin</packaging>
-  <artifactId>org.sonatype.ide.eclipse.guice.tests</artifactId>
+  <artifactId>org.sonatype.m2e.guice.tests</artifactId>
   <name>Guice Integration for Eclipse (tests)</name>
 
   <dependencies>
     <dependency>
       <groupId>org.sonatype.ide.eclipse</groupId>
-      <artifactId>org.sonatype.ide.eclipse.guice</artifactId>
+      <artifactId>org.sonatype.m2e.guice</artifactId>
       <version>${project.version}</version>
     </dependency>
   </dependencies>

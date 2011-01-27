@@ -12,7 +12,7 @@
   <packaging>pom</packaging>
 
   <groupId>org.sonatype.ide.eclipse</groupId>
-  <artifactId>org.sonatype.ide.eclipse.guice.parent</artifactId>
+  <artifactId>org.sonatype.m2e.guice.parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
   <name>Guice Integration for Eclipse (parent)</name>
@@ -36,9 +36,9 @@
   </ciManagement>
 
   <modules>
-    <module>org.sonatype.ide.eclipse.guice</module>
-    <module>org.sonatype.ide.eclipse.guice.tests</module>
-    <module>org.sonatype.ide.eclipse.guice.feature</module>
+    <module>org.sonatype.m2e.guice</module>
+    <module>org.sonatype.m2e.guice.tests</module>
+    <module>org.sonatype.m2e.guice.feature</module>
   </modules>
 
   <properties>

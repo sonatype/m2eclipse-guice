@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="org.sonatype.ide.eclipse.guice"
+      id="org.sonatype.m2e.guice"
       label="%featureName"
       version="0.0.1.qualifier"
       provider-name="%providerName"
-      plugin="org.sonatype.ide.eclipse.guice">
+      plugin="org.sonatype.m2e.guice">
    <install-handler/>
 
    <description>
@@ -37,7 +37,7 @@
          version="0.0.0"/>
 
    <plugin
-         id="org.sonatype.ide.eclipse.guice"
+         id="org.sonatype.m2e.guice"
          download-size="0"
          install-size="0"
          version="0.0.0"/>

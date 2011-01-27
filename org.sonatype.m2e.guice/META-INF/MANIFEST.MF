@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: %Bundle-Name
-Bundle-SymbolicName: org.sonatype.ide.eclipse.guice;singleton:=true
+Bundle-SymbolicName: org.sonatype.m2e.guice;singleton:=true
 Bundle-Version: 0.0.1.qualifier
 Bundle-Activator: com.google.inject.tools.ideplugin.eclipse.Activator
 Bundle-Vendor: %Bundle-Vendor
@@ -24,5 +24,5 @@ Require-Bundle: org.eclipse.ui,
  org.sonatype.sisu.guice,
  org.sonatype.inject
 MavenArtifact-GroupId: org.sonatype.ide.eclipse
-MavenArtifact-ArtifactId: org.sonatype.ide.eclipse.guice
+MavenArtifact-ArtifactId: org.sonatype.m2e.guice
 
