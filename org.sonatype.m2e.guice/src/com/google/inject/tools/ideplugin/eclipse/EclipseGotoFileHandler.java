@@ -42,7 +42,7 @@ class EclipseGotoFileHandler implements GotoFileHandler {
       String fixedName = action.getClassname().replace('$', '.');
       IType type =
           ((EclipseJavaProject) projectManager.getCurrentProject())
-              .getIJavaProject().findType(fixedName);
+              .getIJavaProject().findType(fixedName.substring(1+fixedName.lastIndexOf(' ')));
       JavaUI.openInEditor(type);
     } catch (Exception exception) {
       messenger.logException("GotoFile Action Exception", exception);

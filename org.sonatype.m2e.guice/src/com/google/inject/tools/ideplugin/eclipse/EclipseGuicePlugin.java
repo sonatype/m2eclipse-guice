@@ -24,13 +24,16 @@ import org.eclipse.ui.PlatformUI;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.google.inject.tools.ideplugin.GuicePlugin;
+import com.google.inject.tools.ideplugin.JavaElement;
 import com.google.inject.tools.ideplugin.ModuleSelectionView;
 import com.google.inject.tools.ideplugin.ProjectManager;
+import com.google.inject.tools.ideplugin.bindings.BindingsEngine;
 import com.google.inject.tools.ideplugin.results.ResultsView;
 import com.google.inject.tools.ideplugin.results.Results;
 import com.google.inject.tools.suite.GuiceToolsModule;
 import com.google.inject.tools.ideplugin.JavaProject;
 import com.google.inject.tools.suite.Messenger;
+import com.google.inject.tools.suite.module.ModuleManager;
 
 /*
  * @author Darren Creutz (dcreutz@gmail.com)
@@ -113,5 +116,15 @@ public class EclipseGuicePlugin extends GuicePlugin {
   public EclipseGuicePlugin(EclipsePluginModule module,
       GuiceToolsModule toolsModule) {
     super(module, toolsModule);
+  }
+
+  @Override
+  public BindingsEngine getBindingsEngine(JavaElement element, JavaProject javaProject) {
+    if (javaProject instanceof EclipseJavaProject) {
+      ModuleManager moduleManager = getModuleManager(javaProject);
+      moduleManager.createModuleContext("sisu").addModule("org.sonatype.guice.bean.binders.IndexModule");
+      moduleManager.rerunModules();
+    }
+    return super.getBindingsEngine(element, javaProject);
   }
 }

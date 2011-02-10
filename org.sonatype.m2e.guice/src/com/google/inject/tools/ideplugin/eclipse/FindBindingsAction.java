@@ -31,10 +31,11 @@ public class FindBindingsAction extends EclipseMenuAction {
   @Override
   public boolean runMyAction(IEditorPart part) {
     JavaElementResolver resolver = new JavaElementResolver(part);
-    EclipseJavaElement javaElement = new EclipseJavaElement(resolver.getJavaElement());
+    EclipseJavaElement javaElement = resolver.getJavaElement()==null ? null :
+        new EclipseJavaElement(resolver.getJavaElement());
     if (javaElement != null && javaElement.getType() != null) {
       guicePlugin.getBindingsEngine(javaElement,
-         new EclipseJavaProject(resolver.getJavaElement().getJavaProject()));
+          new EclipseJavaProject(javaElement.getIJavaElement().getJavaProject()));
       return true;
     } else {
       guicePlugin.getMessenger().display(PluginTextValues.FIND_BINDINGS_NOT_AVAILABLE);

@@ -69,7 +69,7 @@ public class EclipseResultsView extends ViewPart implements ResultsView {
   @Override
   public void createPartControl(Composite parent) {
     createManagedForm(parent);
-    createToolbarActions();
+    //createToolbarActions();
   }
   
   private void createManagedForm(Composite parent) {

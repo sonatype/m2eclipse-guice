@@ -56,7 +56,7 @@ public class IDEPluginSettings implements Settings {
    * Create settings with default values.
    */
   public IDEPluginSettings() {
-    activateByDefault = false;
+    activateByDefault = true;
     runAutomatically = false;
     listenForChanges = false;
   }

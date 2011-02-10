@@ -17,8 +17,10 @@
    		          label="&amp;Guice"
    		          path="org.eclipse.search.menu/extraSearchGroup">
    		      <separator name="actions"/>
+<!--
    		      <separator name="modules"/>
    		      <separator name="options"/>
+-->
    		    </menu>
    			<action
                class="com.google.inject.tools.ideplugin.eclipse.FindBindingsAction"
@@ -26,6 +28,7 @@
                id="com.google.inject.tools.ideplugin.eclipse.bindings.findBindingsActionSetAction"
                label="Find &amp;Bindings"
                menubarPath="org.eclipse.search.menu/com.google.inject.tools.ideplugin.eclipse.menu/actions"/>
+<!--
             <action
                class="com.google.inject.tools.ideplugin.eclipse.RunModulesNowAction2"
                definitionId="com.google.inject.tools.ideplugin.eclipse.runnowCommand2"
@@ -38,6 +41,7 @@
                id="com.google.inject.tools.ideplugin.eclipse.bindings.configureActionSetAction"
                label="&amp;Configure"
                menubarPath="org.eclipse.search.menu/com.google.inject.tools.ideplugin.eclipse.menu/options"/>
+-->
    		</actionSet>
    </extension>
    <extension
@@ -49,8 +53,10 @@
          <menu label="&amp;Guice" path="additions"
            	id="com.google.inject.tools.ideplugin.eclipse.objectmenu.guice">
          	<separator name="actions"/>
+<!--
          	<separator name="modules"/>
          	<separator name="options"/>
+-->
          </menu>
          <action
              class="com.google.inject.tools.ideplugin.eclipse.BindingsObjectAction"
@@ -59,6 +65,7 @@
              id="com.google.inject.tools.ideplugin.eclipse.bindings.objectContributionAction"
              label="Find &amp;Bindings"
              menubarPath="com.google.inject.tools.ideplugin.eclipse.objectmenu.guice/actions"/>
+<!--
          <action
          	   class="com.google.inject.tools.ideplugin.eclipse.GuicePluginConfigureAction"
          	   definitionId="com.google.inject.tools.ideplugin.eclipse.configureCommand2"
@@ -73,6 +80,7 @@
          	   id="com.google.inject.tools.ideplugin.eclipse.objectrunmodulesaction"
          	   label="&amp;Run Contexts Now"
          	   menubarPath="com.google.inject.tools.ideplugin.eclipse.objectmenu.guice/modules"/>
+-->
       </objectContribution>
       <viewerContribution
       		id="com.google.inject.tools.ideplugin.eclipse.bindings.viewerContribution"
@@ -80,8 +88,10 @@
       	 <menu label="&amp;Guice" path="additions"
          	id="com.google.inject.tools.ideplugin.eclipse.viewermenu.guice">
          	<separator name="actions"/>
+<!--
          	<separator name="modules"/>
          	<separator name="options"/>
+-->
          </menu>
       	 <action
       	 	 	class="com.google.inject.tools.ideplugin.eclipse.BindingsEditorAction"
@@ -89,6 +99,7 @@
       	 	 	id="com.google.inject.tools.ideplugin.eclipse.bindings.viewerContributionAction"
       	 	 	label="Find &amp;Bindings"
       	 	 	menubarPath="com.google.inject.tools.ideplugin.eclipse.viewermenu.guice/actions"/>
+<!--
 		 <action
          	   class="com.google.inject.tools.ideplugin.eclipse.GuicePluginConfigureAction"
          	   definitionId="com.google.inject.tools.ideplugin.eclipse.configureCommand2"
@@ -103,6 +114,7 @@
          	   id="com.google.inject.tools.ideplugin.eclipse.runmodulesaction"
          	   label="&amp;Run Contexts Now"
          	   menubarPath="com.google.inject.tools.ideplugin.eclipse.viewermenu.guice/modules"/>
+-->
       </viewerContribution>
       <viewerContribution
       		id="com.google.inject.tools.ideplugin.eclipse.bindings.viewerContribution"
@@ -110,8 +122,10 @@
       	 <menu label="&amp;Guice" path="additions"
          	id="com.google.inject.tools.ideplugin.eclipse.viewermenu.guice">
          	<separator name="actions"/>
+<!--
          	<separator name="modules"/>
          	<separator name="options"/>
+-->
          </menu>
       	 <action
       	 	 	class="com.google.inject.tools.ideplugin.eclipse.BindingsEditorAction"
@@ -119,6 +133,7 @@
       	 	 	id="com.google.inject.tools.ideplugin.eclipse.bindings.viewerContributionAction"
       	 	 	label="Find &amp;Bindings"
       	 	 	menubarPath="com.google.inject.tools.ideplugin.eclipse.viewermenu.guice/actions"/>
+<!--
 		 <action
          	   class="com.google.inject.tools.ideplugin.eclipse.GuicePluginConfigureAction"
          	   definitionId="com.google.inject.tools.ideplugin.eclipse.configureCommand2"
@@ -133,6 +148,7 @@
          	   id="com.google.inject.tools.ideplugin.eclipse.runmodulesaction"
          	   label="&amp;Run Contexts Now"
          	   menubarPath="com.google.inject.tools.ideplugin.eclipse.viewermenu.guice/modules"/>
+-->
       </viewerContribution>
    </extension>
    <extension
@@ -170,24 +186,28 @@
      <command categoryId="com.google.inject.tools.ideplugin.eclipse.guice"
               id="com.google.inject.tools.ideplugin.eclipse.findBindingsCommand2"
               name="Find Guice Bindings"/>
+<!--
      <command categoryId="com.google.inject.tools.ideplugin.eclipse.guice"
               id="com.google.inject.tools.ideplugin.eclipse.configureCommand2"
               name="Configure Guice Plugin"/>
      <command categoryId="com.google.inject.tools.ideplugin.eclipse.guice"
               id="com.google.inject.tools.ideplugin.eclipse.runnowCommand2"
               name="Run Guice Module Contexts Now"/>
+-->
    </extension>
    <extension
          point="org.eclipse.ui.startup">
       <startup class="com.google.inject.tools.ideplugin.eclipse.EclipseEarlyStartup">
       </startup>
    </extension>
+<!--
    <extension
          point="org.eclipse.ui.preferencePages">
       <page id="com.google.inject.tools.ideplugin.eclipse.prefpage"
             class="com.google.inject.tools.ideplugin.eclipse.PreferencesPage"
             name="Guice Plugin"/>
    </extension>
+-->
    <extension point="org.eclipse.core.runtime.preferences">
       <initializer class="com.google.inject.tools.ideplugin.eclipse.PreferencesInitializer"/>
    </extension>

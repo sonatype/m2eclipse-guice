@@ -313,6 +313,10 @@ public class ActionStringBuilder implements CodeLocationVisitor, CodeProblemVisi
       super();
       addText("Guice Code Problem: ");
       addText(problem.getMessage());
+      StackTraceElement[] frames = problem.getStackTrace();
+      if (frames != null && frames.length > 0) {
+        addText(" at "+frames[1]);
+      }
     }
   }
   

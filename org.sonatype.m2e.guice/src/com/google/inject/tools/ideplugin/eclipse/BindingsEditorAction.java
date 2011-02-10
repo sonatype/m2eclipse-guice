@@ -52,7 +52,7 @@ public class BindingsEditorAction implements IEditorActionDelegate {
         new EclipseJavaElement(resolver.getJavaElement());
     if (javaElement != null && javaElement.getType() != null) {
       guicePlugin.getBindingsEngine(javaElement,
-          new EclipseJavaProject(resolver.getJavaElement().getJavaProject()));
+          new EclipseJavaProject(javaElement.getIJavaElement().getJavaProject()));
     } else {
       IStatusLineManager statusManager = editor.getEditorSite().getActionBars().getStatusLineManager();
       if (resolver.getSelection() != null) {

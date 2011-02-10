@@ -89,14 +89,14 @@ class EclipsePluginModule extends GuicePluginModule {
   @Override
   protected void bindCustomContextDefinitionSource(
       AnnotatedBindingBuilder<CustomContextDefinitionSource> bindCustomContextDefinitionSource) {
-    bindCustomContextDefinitionSource.to(EclipseContextDefinitionListener.class)
+    bindCustomContextDefinitionSource.to(NoOpCustomContextDefinitionSource.class)
         .asEagerSingleton();
   }
   
   @Override
   protected void bindModulesSource(
       AnnotatedBindingBuilder<ModulesSource> bindModulesListener) {
-    bindModulesListener.to(EclipseModulesListener.class).asEagerSingleton();
+    bindModulesListener.to(NoOpModulesSource.class).asEagerSingleton();
   }
   
   @Override

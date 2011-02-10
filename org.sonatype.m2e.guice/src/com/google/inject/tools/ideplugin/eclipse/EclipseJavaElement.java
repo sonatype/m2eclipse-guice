@@ -61,6 +61,9 @@ class EclipseJavaElement implements JavaElement {
     
   private void findClassNameAndType(IJavaElement element) {
     try {
+      if (element instanceof ICompilationUnit) {
+        element = ((ICompilationUnit)element).findPrimaryType();
+      }
       if (element instanceof IMethod) {
         className = getClassName(element, ((IMethod)element).getSignature());
         type = Type.PARAMETER;
