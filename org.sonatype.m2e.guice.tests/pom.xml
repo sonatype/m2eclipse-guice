@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.sonatype.ide.eclipse</groupId>
+    <groupId>org.sonatype.m2e.guice</groupId>
     <artifactId>org.sonatype.m2e.guice.parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
@@ -15,7 +15,7 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.sonatype.ide.eclipse</groupId>
+      <groupId>org.sonatype.m2e.guice</groupId>
       <artifactId>org.sonatype.m2e.guice</artifactId>
       <version>${project.version}</version>
     </dependency>

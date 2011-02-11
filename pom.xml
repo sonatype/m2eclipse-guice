@@ -11,7 +11,7 @@
 
   <packaging>pom</packaging>
 
-  <groupId>org.sonatype.ide.eclipse</groupId>
+  <groupId>org.sonatype.m2e.guice</groupId>
   <artifactId>org.sonatype.m2e.guice.parent</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
@@ -44,6 +44,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <forgeReleaseUrl>https://repository.sonatype.org/service/local/staging/deploy/maven2</forgeReleaseUrl>
+    <sisu-inject-version>2.2.0-SNAPSHOT</sisu-inject-version>
     <tycho-version>0.10.0</tycho-version>
     <m2e.site-compressed>http://repository.sonatype.org/service/local/repositories/forge-sites/content-compressed/</m2e.site-compressed>
   </properties>
@@ -60,7 +61,7 @@
     <dependency>
       <groupId>org.sonatype.sisu</groupId>
       <artifactId>sisu-inject-bean</artifactId>
-      <version>2.2.0-SNAPSHOT</version>
+      <version>${sisu-inject-version}</version>
     </dependency>
   </dependencies>
 

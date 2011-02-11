@@ -122,7 +122,9 @@ public class EclipseGuicePlugin extends GuicePlugin {
   public BindingsEngine getBindingsEngine(JavaElement element, JavaProject javaProject) {
     if (javaProject instanceof EclipseJavaProject) {
       ModuleManager moduleManager = getModuleManager(javaProject);
-      moduleManager.createModuleContext("sisu").addModule("org.sonatype.guice.bean.binders.IndexModule");
+      if (moduleManager.getModuleContext("sisu") == null) {
+        moduleManager.addCustomContext("sisu", SisuIndex.class.getName(), "bindings");
+      }
       moduleManager.rerunModules();
     }
     return super.getBindingsEngine(element, javaProject);
