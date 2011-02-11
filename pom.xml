@@ -44,7 +44,7 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <forgeReleaseUrl>https://repository.sonatype.org/service/local/staging/deploy/maven2</forgeReleaseUrl>
-    <sisu-inject-version>2.2.0-SNAPSHOT</sisu-inject-version>
+    <sisu-inject-version>2.1.1</sisu-inject-version>
     <tycho-version>0.10.0</tycho-version>
     <m2e.site-compressed>http://repository.sonatype.org/service/local/repositories/forge-sites/content-compressed/</m2e.site-compressed>
   </properties>
